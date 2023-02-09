@@ -213,7 +213,7 @@ function generatePage() {
                 <section class='col-5 col-sm-4 col-md-3 col-lg-2 bg-primary text-light border border-2 border-dark p-2 m-1'>
                     <p class='h2'>${ employee[i].name }</p>
                     <p class='h2'>${ employee[i].role }</p>
-                    <section class='bg-light text-dark border border-2 border-dark p-0 m-0'>
+                    <section class='bg-light text-dark border border-2 border-dark p-2 m-0'>
                         ID: ${ employee[i].id }</br>
                         Email: ${ employee[i].email }</br> `);
         if(employee[i].role == 'Manager') {     
@@ -239,11 +239,17 @@ function generatePage() {
     </body>
 </html>`);
     
-    fs.writeFile(filePath + htmlFile, html, (err) => {
-        if(err) {
-            console.error(err);
+    fs.mkdir(filePath, { recursive: true }, (errFolder) => {
+        if(errFolder) {
+            console.error(errFolder);
         } else {
-            console.log('File has been created');
+            fs.writeFile(filePath + htmlFile, html, (errFile) => {
+                if(errFile) {
+                    console.error(errFile);
+                } else {
+                    console.log('File has been created');
+                }
+            });
         }
     });
 }

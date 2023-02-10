@@ -7,8 +7,20 @@ describe("Employee Object", () =>{
             id: 2,
             email: 'james@joecorp.com',
         }
-        jamesObject = new Employee(james)
+        jamesObject = new Employee(james);
     
         expect(jamesObject.name).toEqual(james.name);
+        expect(jamesObject.id).toEqual(james.id);
+        expect(jamesObject.email).toEqual(james.email);
+    });
+
+    it("should display Employee as the role from getRole()", () => {
+        const james = {
+            name: 'James',
+            id: 2,
+            email: 'james@joecorp.com',
+        }
+        jamesObject = new Employee(james);
+        expect(jamesObject.role).toEqual("Employee");
     });
 });

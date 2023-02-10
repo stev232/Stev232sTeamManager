@@ -204,10 +204,7 @@ function generatePage() {
             </section>
         </header>
         <section class='row w-100 d-flex justify-content-center mt-3'>
-            <section class='column col-1'>
-            </section>
-            <section class='row justify-content-center'>
-`;
+            <section class='row justify-content-center'>`;
     for(let i = 0; i < count; i++) {
         html = html.concat(`
                 <section class='col-5 col-sm-4 col-md-3 col-lg-2 bg-primary text-light border border-2 border-dark p-2 m-1'>
@@ -215,25 +212,24 @@ function generatePage() {
                     <p class='h2'>${ employee[i].role }</p>
                     <section class='bg-light text-dark border border-2 border-dark p-2 m-0'>
                         ID: ${ employee[i].id }</br>
-                        Email: ${ employee[i].email }</br> `);
+                        Email: <a href='mailto:${ employee[i].email }'>${ employee[i].email }</a></br> `);
         if(employee[i].role == 'Manager') {     
-            html = html.concat(
-                        `Office number: ${ employee[i].officeNum }</br>`);
+            html = html.concat(`
+                        Office number: ${ employee[i].officeNum }</br>`);
         } else if(employee[i].role == 'Engineer') {     
-            html = html.concat(
-                        `Github: ${ employee[i].github }</br>`);
+            html = html.concat(`
+                        Github: <a href='https://github.com/${ employee[i].github }' target='_blank'>${ employee[i].github }</a></br>`);
         } else if(employee[i].role == 'Intern') {     
-            html = html.concat(
-                        `Office School: ${ employee[i].school }</br>`);
+            html = html.concat(`
+                        Office School: ${ employee[i].school }</br>`);
         }
+
+        html = html.concat(`        
+                    </section>
+                </section>`);
     }
 
     html = html.concat(`
-                        </section>
-                    </section>
-                </section>
-                <section class='column col-1'>
-                </section>
             </section>        
         </section>
     </body>

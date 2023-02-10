@@ -9,3 +9,5 @@ The purpose of this project is to use node.js to take in user input through the 
 In order to use this project you will need to navigate to the folder that you cloned it into. Then type "node index.js" and then you will be given prompts asking you information about the Team Manager. You will then get the option to add an Engineer or Intern or finish. When you type finish then the project will use all of your input and generate an html file. This file will display your entire team on a web page.
 
 ## Demo Video
+
+Video link: https://drive.google.com/file/d/1VZYqvyiT9r8cZNovdBK7k6-MbIBvW0Lv/view

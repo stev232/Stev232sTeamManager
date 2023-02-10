@@ -9,8 +9,22 @@ describe("Engineer Object", () =>{
             email: 'james@joecorp.com',
             userName: 'james2',
         }
-        jamesObject = new Engineer(james)
+        jamesObject = new Engineer(james);
     
         expect(jamesObject.name).toEqual(james.name);
+        expect(jamesObject.id).toEqual(james.id);
+        expect(jamesObject.email).toEqual(james.email);
+        expect(jamesObject.github).toEqual(james.userName);
+    });
+
+    it("should display Engineer as the role from getRole()", () => {
+        const james = {
+            name: 'James',
+            id: 2,
+            email: 'james@joecorp.com',
+            userName: 'james2',
+        }
+        jamesObject = new Engineer(james);
+        expect(jamesObject.role).toEqual("Engineer");
     });
 });
